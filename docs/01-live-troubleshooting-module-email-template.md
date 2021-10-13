@@ -15,7 +15,10 @@ In your home directory you will find a file called README.md that will explain t
 
 You will have an hour by yourself to work on the module. Feel free to look up documentation and use the internet. You can complete the module with all the tools provided, but if you would like to install additional tools, you may. The goal of this module is to help us understand your proficiency with some of the technologies we use at at the company. It's okay if you don't get the module fully working because we are more interested in your thought process and how you approach problems. 
 
-After the first hour, some team members will join the meeting room to review the module with you and proceed with the technical interview.
+---
+The team members scheduled to interview you will join the meeting room to greet you and make sure you have everything you need, and then hop off.
+
+After the first hour, the team members will rejoin the meeting room to review the module with you and proceed with the technical interview.
 
 Best of luck!
 
