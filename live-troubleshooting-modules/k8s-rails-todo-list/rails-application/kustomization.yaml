@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: rails-app
+resources:
+- namespace.yaml
+- railsk8s-app-deploy.yaml
+- railsk8s-app-svc.yaml
+- railsk8s-ingress.yaml
+#- railsk8s-sidecar-deploy.yaml
+#- railsk8s-sidecar-svc.yaml

@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rails-app-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: interview-ingress-ip
+    kubernetes.io/ingress.class: rails-app-ingress 
+spec:
+  tls:
+    - hosts:
+      - "techops-interview.foo.bar.com"
+      secretName: cert-manager-tls-cert
+  rules:
+    - host: "techops-interview.foo.bar.com"
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: k8s-rails-svc
+              servicePort: 80

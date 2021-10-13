@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: railsk8s-app
+  name: railsk8s-app-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: railsk8s-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: railsk8s-app
+    spec:
+      containers:
+      - image: jakuboboza/rails-on-k8s:latest
+        imagePullPolicy: Always
+        name: app
+        env:
+        - name: DATABASE_HOST
+          value: example-postgres
+        - name: DATABASE_PORT
+          value: '3000'
+        - name: DATABASE_PASSWORD
+          value: postgres123
+        - name: DATABASE_USERNAME
+          value: postgres
+        - name: RAILS_ENV
+          value: production
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "125m"
+      tolerations:
+      - key: "app-pool"
+        operator: "Exists"
+        effect: "NoSchedule"
